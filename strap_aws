@@ -25,4 +25,5 @@ cd $HOME && mkdir target_dir && cd target_dir
 git init 
 terraform init
 
-
+# now configure aws cli
+# https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html
