@@ -1,0 +1,28 @@
+#!/bin/bash
+set -x
+sudo yum install epel-release -y
+sudo yum install curl wget vim git unzip -y
+
+sudo yum install python-pip -y
+
+sudo pip install --upgrade pip
+sudo pip install awscli
+sudo pip install --upgrade awscli
+
+aws --version
+
+cd /tmp
+wget https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip
+unzip terraform*.zip
+
+chmod +x terraform*
+
+sudo mv terraform /usr/local/bin/terraform
+
+# create a new s3 working dir back in $HOME
+cd $HOME && mkdir target_dir && cd target_dir 
+# initialize a new git && terraform dir
+git init 
+terraform init
+
+
